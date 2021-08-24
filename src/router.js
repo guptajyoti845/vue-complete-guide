@@ -1,4 +1,4 @@
-import { NotFound } from './pages/NotFound.vue';
+import NotFound from './pages/NotFound.vue';
 import CoachDetail from './pages/coaches/CoachDetail.vue';
 import CoachesList from './pages/coaches/CoachesList.vue';
 import CoachRegister from './pages/coaches/CoachRegister.vue';

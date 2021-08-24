@@ -1,8 +1,54 @@
 <template>
-    <section>
-        FILTER
-    </section>
-    <section>
+  <section>
+    FILTER
+  </section>
+  <section>
+    <card>
+      <div class="controls">
+        <base-button mode="outline">Refresh</base-button>
+        <base-button link to="/register">Register as Coach</base-button>
+      </div>
+      <ul v-if="hasCoaches">
         LIST OF COACHES
-    </section>
+        <coach-item
+          v-for="coach in filteredCoaches"
+          :key="coach.id"
+          :id="coach.id"
+          :firstName="coach.firstName"
+          :lastName="coach.lastName"
+          :rate="coach.hourlyRate"
+          :areas="coach.areas"
+        />
+      </ul>
+      <h3 v-else>No Coaches Found</h3>
+    </card>
+  </section>
 </template>
+
+<script>
+import CoachItem from '../../components/coaches/CoachItem.vue';
+export default {
+  components: { CoachItem },
+  computed: {
+    filteredCoaches() {
+      return this.$store.getters['coaches/coaches'];
+    },
+    hasCoaches() {
+      return this.$store.getters['coaches/hasCoaches'];
+    },
+  },
+};
+</script>
+
+<style scoped>
+ul {
+  list-style: none;
+  margin: 0;
+  padding: 0;
+}
+
+.controls {
+  display: flex;
+  justify-content: space-between;
+}
+</style>
