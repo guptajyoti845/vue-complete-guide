@@ -11,12 +11,12 @@
 export default {
   props: {
     link: {
-      tyoe: Boolean,
+      type: Boolean,
       required: false,
       default: false,
     },
     to: {
-      tyoe: Boolean,
+      type: String,
       required: false,
       default: '/',
     },
